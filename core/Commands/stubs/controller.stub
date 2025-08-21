@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Admin\User\{adminInterface};
+use Core\Controllers\AbstractController;
+
+class UserController extends AbstractController
+{
+    /**
+     * @var {adminInterface}
+     */
+    protected Admin $admin;
+
+    public function __construct({adminInterface} $admin)
+    {
+        parent::__construct($admin);
+    }
+}

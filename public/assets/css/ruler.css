@@ -1,0 +1,354 @@
+#thuocloban *,
+#thuocloban {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body div#loban-wrapper #loban-thelist,
+body div#loban-wrapper #loban-thelist li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#loban-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*background: #fff;*/
+    overflow: auto;
+}
+
+#lobanOuter {
+    width: 100%;
+    position: relative;
+    font-size: 14px;
+}
+
+#loban-scroller {
+    width: 10100px;
+    height: 100%;
+    float: left;
+    padding: 0;
+}
+
+#loban-scroller li {
+    display: block;
+    float: left;
+    width: 10000px;
+    height: 100%;
+}
+
+#loban-scroller li img {
+    margin-top: 50px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+#pullRight, #pullLeft {
+    display: block;
+    width: 50px;
+    float: left;
+    height: 100%;
+}
+
+#sodoLoban {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 400px;
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    /*border:1px solid red;*/
+}
+
+#container-sodo {
+    position: absolute;
+    z-index: 2;
+    top: -15px;
+    left: 212px;
+    width: 160px;
+    white-space: nowrap;
+}
+
+#sodo {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    border: 2px solid #ffa500;
+    padding: 2px;
+    height: 25px;
+    width: 60px;
+}
+
+#thanhdo {
+    width: 2px;
+    height: 450px;
+    background: #ffa500;
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    left: 240px;
+}
+
+#abc {
+    position: absolute;
+    top: -20px;
+    display: none;
+}
+
+.loban-note {
+    position: absolute;
+    z-index: 2;
+    top: 25px;
+    right: 0;
+    background: url('../../assets/media/icon/help.gif') no-repeat 0 5px;
+    padding-left: 18px;
+}
+
+.loban-t {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+}
+
+.loban-522 {
+    top: 25px;
+}
+
+.loban-429 {
+    top: 175px;
+}
+
+.loban-388 {
+    top: 325px;
+}
+
+.loban-touch-left {
+    position: absolute;
+    left: 0;
+    top: 31px;
+    height: 358px;
+    width: 50px;
+    z-index: 2;
+}
+
+.loban-touch-right {
+    position: absolute;
+    right: 0;
+    top: 31px;
+    height: 358px;
+    width: 50px;
+    z-index: 2;
+}
+
+.box_huongdan {
+    background: #fff6d3;
+    border: 1px solid #f7e7a9;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.tdbox_hd {
+    color: #d40001;
+}
+
+.tdbox_hd {
+    border-bottom: 1px solid #f7e7a9;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.noidung_boxhd {
+    color: #333;
+    font-size: 13px;
+    line-height: 24px;
+    margin-top: 10px;
+    font-family: arial, sans-serif;
+}
+
+.noidung_boxhd p {
+    margin-bottom: 5px;
+}
+
+#loban {
+    width: 100%;
+}
+
+.loban-h {
+    border: 0;
+    width: 30%;
+    float: left;
+    border-top: 1px solid rgb(128, 128, 128);
+}
+
+.khoan-h {
+    border: 0;
+    width: 100%;
+    float: left;
+}
+
+.tot {
+    /*background: #fff;*/
+    color: #ED1C24;
+}
+
+.tenkhoan {
+    border: 0;
+    border-left: 1px solid rgb(128, 128, 128);
+    border-bottom: 1px solid rgb(128, 128, 128);
+    width: 50%;
+    float: left;
+    font-size: 13px;
+    text-transform: uppercase;
+    height: 115px;
+    text-align: center;
+    font-weight: bold;
+    display: table;
+}
+
+.tenkhoan span {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+.cung-h {
+    border: 0;
+    margin: 0;
+    float: left;
+    width: 50%;
+}
+
+.tencung {
+    border: 0;
+    border-left: 1px solid rgb(128, 128, 128);
+    border-bottom: 1px solid rgb(128, 128, 128);
+    margin: 0;
+    width: 100%;
+    height: 23px;
+    float: left;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+/*.xau {*/
+/*    !*background: #f3f3f3;*!*/
+/*}*/
+
+.cung {
+    border: 0;
+    border-right: 1px solid rgb(128, 128, 128);
+    margin: 0;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sodo1, .sodo2, .sodo3, .sodo4, .sodo5, .sodo6, .sodo7, .sodo8 {
+    border: 0;
+    border-left: 1px solid rgb(128, 128, 128);
+    border-bottom: 1px solid rgb(128, 128, 128);
+    margin: 0;
+    width: 12.5%;
+    height: 23px;
+    float: left;
+    text-align: center;
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+.loban-d {
+    border: 0;
+    width: 70%;
+    border-top: 1px solid rgb(128, 128, 128);
+    float: left;
+}
+
+div#thuocloban > p {
+    margin-bottom: 10px;
+}
+
+#thuocloban {
+    margin-top: 20px;
+}
+
+.clear:before,
+.clear:after {
+    content: "";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+.clear,
+.clear-after:after,
+.clear-before:before,
+.row:after {
+    *zoom: 1;
+}
+
+@media (max-width: 650px) {
+    .loban-note {
+        top: -15px;
+        left: 0;
+        font-size: 12px;
+        right: auto;
+        margin: 0 !important;
+        padding-top: 3px;
+    }
+
+    [class^="loban-t loban-"] {
+        font-size: 12px;
+        line-height: 15px !important;
+    }
+
+    .loban-t.loban-522 {
+        top: 16px;
+    }
+
+    .loban-t.loban-429 {
+        top: 168px;
+    }
+
+    .tenkhoan span {
+        line-height: 15px;
+        font-size: 10px;
+    }
+
+    #thuocloban {
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+
+    div#loban {
+        min-width: 660px;
+    }
+
+    .tencung {
+        padding-top: 0;
+    }
+
+    .sodo1, .sodo2, .sodo3, .sodo4, .sodo5, .sodo6, .sodo7, .sodo8 {
+        padding-top: 0;
+    }
+}

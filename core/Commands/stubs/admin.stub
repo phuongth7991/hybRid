@@ -1,0 +1,61 @@
+<?php
+
+namespace {namespace};
+
+use Core\AbstractAdmin;
+use {repositoryInterfaceNamespace}\{repositoryInterfaceName};
+use Illuminate\Http\Request;
+use Core\DataFilter\Field;
+
+class {adminName} extends AbstractAdmin implements {adminInterface} {
+
+    /**
+    * @var {repositoryInterfaceName}
+    */
+    protected {repositoryInterfaceName} $repository;
+
+     public string $route = '{adminRouter}';
+
+    public function __construct({repositoryInterfaceName} $repository)
+    {
+      $this->repository = $repository;
+    }
+
+    public function getForm(): string
+    {
+        return {adminName}Form::class;
+    }
+
+    public function getDataTable(): string
+    {
+        return {adminName}DataTable::class;
+    }
+
+    public function getAdminName(): string
+    {
+        // TODO: Implement getAdminName() method.
+    }
+
+    public function datatables(Request $request)
+    {
+        return \DataTables::eloquent($this->repository->getModel()->query())
+            ->toJson();
+    }
+
+    // TODO REMOVE IF YOU DON'T NEED
+    public function configFilter(): ?array
+    {
+        return [
+            'name' => [
+                'type' => Field::TEXT,
+                'label' => __('Tên'),
+                'placeholder' => __('Vui lòng nhập tên...')
+            ],
+            'email' => [
+                'type' => Field::EMAIL,
+                'label' => __('Email'),
+                'placeholder' => __('Vui lòng nhập email...')
+            ]
+        ];
+    }
+}

@@ -1,0 +1,31 @@
+<?php
+
+namespace {namespace};
+
+use Core\Form\Field;
+use Core\Form\Form;
+
+class {adminName}Form extends Form
+{
+    public function buildForm(): void
+    {
+//        $this
+//            ->add('name', Field::TEXT, [
+//                'rules' => 'required|min:5',
+//                'label' => __('Tên')
+//            ])
+//            ->add('email', Field::EMAIL, [
+//                'rules' => 'required|email',
+//                'label' => __('Email')
+//            ])
+//            ->add('password', Field::PASSWORD, [
+//                'label' => __('Mật khẩu')
+//            ])
+//            ->add('submit', Field::BUTTON_SUBMIT, [
+//                'attr' => [
+//                    'class' => 'btn btn-success'
+//                ],
+//                'label' => __('Lưu')
+//            ]);
+    }
+}

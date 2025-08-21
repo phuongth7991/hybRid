@@ -1,0 +1,8 @@
+<?php
+
+namespace {namespace};
+
+use Core\Interfaces\Admin;
+
+interface {adminInterface} extends Admin {
+}

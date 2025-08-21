@@ -1,0 +1,371 @@
+.wp-block-button__link {
+    color: #fff;
+    background-color: #32373c;
+    border-radius: 9999px;
+    box-shadow: none;
+    text-decoration: none;
+    padding: calc(.667em + 2px) calc(1.333em + 2px);
+    font-size: 1.125em
+}
+
+.wp-block-file__button {
+    background: #32373c;
+    color: #fff;
+    text-decoration: none
+}
+
+.trp-language-switcher > div {
+    padding: 3px 5px 3px 5px;
+    background-image: none;
+    text-align: center;
+}
+
+#site-navigation-wrap .menu-item:hover:not(.current-menu-item) .link-inner::after {
+    opacity: 0 !important
+}
+
+.wpex-card-portfolio_2 .wpex-card-media {
+    margin-bottom: 25px
+}
+
+.sidr-class-wpex-close {
+    font-size: 40px
+}
+
+@supports (text-decoration-thickness:1px) and (text-underline-offset:.2em) {
+    a, a:hover {
+        text-decoration-thickness: 1px;
+        text-underline-offset: .2em
+    }
+
+    .wpex-card-blog-list_15 .wpex-card-inner {
+        gap: 4vmax
+    }
+
+
+    .sidr-class-dropdown-menu li a {
+        padding-top: 5px;
+        padding-bottom: 5px
+    }
+
+    .vcex-image-grid-entry-excerpt {
+        color: #888888
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .video-bg-home {
+        min-height: 30vh !important
+    }
+}
+
+.password-protection-box {
+    margin-top: 40px
+}
+
+.mobile-video-bg .vc_hidden-xs {
+    display: block !important
+}
+
+.vcex-navbar-sticky-wrapper.is-sticky .vcex-navbar {
+    background: #000
+}
+
+.vc_custom_1666540840341 {
+    border-top-width: 1px !important;
+    border-top-color: #222222 !important;
+    border-top-style: solid !important
+}
+
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 16px
+}
+
+.theme-button, input[type="submit"], button, #site-navigation .menu-button > a > span.link-inner, .woocommerce .button, .added_to_cart, .wp-block-search .wp-block-search__button, .wp-block-file a.wp-block-file__button {
+    font-family: "Be Vietnam Pro", sans-serif;
+    line-height: 1.2;
+    text-transform: uppercase
+}
+
+.header-aside-content {
+    font-size: .9em
+}
+
+.main-navigation-ul .link-inner {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 1em;
+    text-transform: uppercase
+}
+
+.wpex-mobile-menu, #sidr-main {
+    font-size: 1em
+}
+
+body.single-post .single-post-title {
+    font-size: 26px
+}
+
+.sidebar-box .widget-title {
+    font-size: 20px
+}
+
+h1, h2, h3, h4, h5, h6, .theme-heading, .page-header-title, .wpex-heading, .vcex-heading, .entry-title, .wpex-font-heading {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 400;
+    line-height: 1.25;
+    text-transform: uppercase
+}
+
+h2, .wpex-h2 {
+    margin: 2em 0 1em
+}
+
+.mobile-toggle-nav-ul {
+    border-bottom: 1px solid var(--wpex-border-main)
+}
+
+.mobile-toggle-nav-search {
+    margin-top: 20px
+}
+
+:root {
+    --wpex-accent: #ffffff;
+    --wpex-accent-alt: #ffffff;
+    --wpex-on-accent: #000000;
+    --wpex-on-accent-alt: #000000;
+    --wpex-surface-1: #000000;
+    --wpex-surface-2: #111111;
+    --wpex-surface-3: #222222;
+    --wpex-surface-4: #333333;
+    --wpex-text-1: #ffffff;
+    --wpex-text-2: #ffffff;
+    --wpex-text-3: #cccccc;
+    --wpex-text-4: #bbbbbb;
+    --wpex-link-text-decoration: underline;
+    --wpex-btn-padding: .9em 1.5em;
+    --wpex-btn-border-radius: 4px;
+    --wpex-btn-color: #ffffff;
+    --wpex-hover-btn-color: #ffffff;
+    --wpex-active-btn-color: #ffffff;
+    --wpex-btn-bg: #666666;
+    --wpex-hover-btn-bg: #888888;
+    --wpex-active-btn-bg: #888888;
+    --wpex-input-color: #000000;
+    --wpex-focus-input-color: #000000;
+    --wpex-input-bg: #ffffff;
+    --wpex-focus-input-bg: #ffffff;
+    --wpex-input-border-width: 0px;
+    --wpex-site-header-height: 80px;
+    --wpex-site-header-shrink-start-height: 80px;
+    --wpex-site-header-shrink-end-height: 80px;
+    --wpex-sidr-width: 350px;
+    --wpex-sidr-gutter: 2vmax;
+    --wpex-vc-column-inner-margin-bottom: 40px
+}
+
+.page-header.wpex-supports-mods {
+    padding-top: 2vmax;
+    padding-bottom: 2vmax;
+    background-color: #000000;
+    border-top-width: 0px;
+    border-bottom-width: 0px
+}
+
+.page-header {
+    margin-bottom: 0px
+}
+
+.site-breadcrumbs {
+    Background-color: #111111
+}
+
+.style-custom .wpex-social-share__link {
+    background-color: #111111
+}
+
+#site-scroll-top {
+    border-radius: 4px !important;
+    background-color: #111111
+}
+
+#site-scroll-top:hover {
+    background-color: #222222;
+    color: #ffffff
+}
+
+:root, .boxed-main-layout.wpex-responsive #wrap {
+    --wpex-container-max-width: calc(100% - 6vw);
+    --wpex-container-width: 1280px
+}
+
+#top-bar {
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+#site-navigation-wrap {
+    --wpex-main-nav-gutter: 25px;
+    --wpex-main-nav-link-padding-x: 0px;
+    --wpex-main-nav-link-underline-height: 1px;
+    --wpex-main-nav-link-color: #cccccc;
+    --wpex-hover-main-nav-link-color: #cccccc;
+    --wpex-active-main-nav-link-color: #cccccc;
+    --wpex-hover-main-nav-link-color: #ffffff;
+    --wpex-active-main-nav-link-color: #ffffff;
+    --wpex-dropmenu-bg: #111111;
+    --wpex-dropmenu-caret-bg: #111111;
+    --wpex-hover-dropmenu-link-bg: #222222
+}
+
+.navbar-style-seven, .navbar-style-eight, .navbar-style-nine, .navbar-style-ten {
+    --wpex-main-nav-link-padding-y: 10px
+}
+
+.sidr-class-wpex-close {
+    text-align: right
+}
+
+#sidr-main, .sidr-class-dropdown-menu ul {
+    background-color: #000000
+}
+
+#sidr-main {
+    color: #ffffff;
+    --wpex-text-2: #ffffff;
+    --wpex-link-color: #ffffff
+}
+
+@media only screen and (min-width: 960px) {
+    :root {
+        --wpex-content-area-width: calc(100% - 350px);
+        --wpex-primary-sidebar-width: 300px
+    }
+}
+
+.img-lazy_load {
+    width: 100%;
+    height: auto;
+}
+
+.sp-arrows .swiper-button-prev, .sp-arrows .swiper-button-next {
+    color: #ffffff;
+}
+
+.sp-buttons .swiper-pagination-bullet {
+    width: 16px !important;
+    height: 16px !important;
+    background: #ffffff !important;
+    border-radius: 50%;
+    opacity: 1;
+    margin: 0 4px;
+}
+
+.media-swiper {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.media-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.media-swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background-color: #f8f8f8;
+}
+
+.sp-buttons .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #000000 !important;
+}
+
+.vc_custom_contact_wrap {
+    margin-top: 40px !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    background-image: url(../media/logos/bg_lh.png) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_contact_map {
+    background-color: #00000050 !important;
+}
+
+.vc_custom_contact_form {
+    border-right-width: 1px !important;
+    border-left-width: 1px !important;
+    background-color: #ffffff !important;
+    border-left-color: #d4dbe0 !important;
+    border-left-style: solid !important;
+    border-right-color: #d4dbe0 !important;
+    border-right-style: solid !important;
+}
+
+.vc_custom_contact_fb {
+    background-color: #ffffff !important;
+}
+
+.position_height_bg {
+    position: relative;
+    height: 100%;
+}
+
+.jarallax_bg {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+}
+
+.vc_row_bg {
+    height: 95vh;
+    overflow: hidden;
+}
+
+.height_100 {
+    height: 100%;
+}
+
+.jarallax {
+    position: relative;
+    z-index: 0;
+}
+
+.jarallax > .jarallax-img,
+picture.jarallax-img img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.menu-item-has-children ul.show {
+    display: block !important;
+    box-sizing: border-box;
+}
+
+.menu-item-has-children ul.hide {
+    display: none !important;
+    box-sizing: border-box;
+}
+
+.adv-social-channel .adv-channel img {
+    height: 70px;
+}
+
+.header-fixed-height #site-header-inner {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}

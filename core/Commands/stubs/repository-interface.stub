@@ -1,0 +1,10 @@
+<?php
+
+namespace {namespace};
+
+use Core\Interfaces\Repository;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+
+interface {repositoryInterfaceName} extends Repository {
+}

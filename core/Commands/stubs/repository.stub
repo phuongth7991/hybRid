@@ -1,0 +1,22 @@
+<?php
+
+namespace {namespace};
+
+use Core\EloquentRepository;
+use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+use App\Models\{ModelName};
+
+class {repositoryName} extends EloquentRepository implements {repositoryInterfaceName} {
+
+    /**
+    * @var {ModelName} $model;
+    */
+    protected Model | Builder $model;
+
+    public function __construct({ModelName} $model)
+    {
+        $this->model = $model;
+    }
+}

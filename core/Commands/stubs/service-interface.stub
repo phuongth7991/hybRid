@@ -1,0 +1,8 @@
+<?php
+
+namespace {namespace};
+
+use Core\Interfaces\Service;
+
+interface {serviceInterface} extends Service {
+}

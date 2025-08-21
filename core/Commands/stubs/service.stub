@@ -1,0 +1,13 @@
+<?php
+
+namespace {namespace};
+
+use Core\BaseService;
+use {repositoryInterfaceNamespace}\{repositoryInterfaceName};
+
+class {serviceName} extends BaseService implements {serviceInterface} {
+
+    public function __construct(protected {repositoryInterfaceName} $repository)
+    {
+    }
+}

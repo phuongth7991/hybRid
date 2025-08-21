@@ -1,0 +1,9 @@
+<?php
+
+namespace {namespace}\{folder};
+
+use Core\Interfaces\Repository;
+use {repositoryInterfaceNamespace}\{repositoryInterfaceName};
+
+class {repositoryName} implements {repositoryInterfaceName} {
+}

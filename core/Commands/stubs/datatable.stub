@@ -1,0 +1,21 @@
+<?php
+
+namespace {namespace};
+
+use Core\Interfaces\DataTable;
+use Core\AbstractDataTable;
+use Yajra\DataTables\Html\Column;
+
+class {adminName}DataTable extends AbstractDataTable implements DataTable
+{
+    public function getColumns(): array
+    {
+        return [
+//            Column::make('id')->title('Id'),
+//            Column::make('name')->title(__('Tên')),
+//            Column::make('email')->title(__('Email')),
+//            Column::make('created_at')->title(__('Ngày tạo'))->render('DataTableHelper.formatDate(full, \'created_at\')'),
+//            Column::make('updated_at')->title('Ngày cập nhật')->render('DataTableHelper.formatDate(full, \'updated_at\')'),
+        ];
+    }
+}
