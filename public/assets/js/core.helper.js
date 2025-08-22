@@ -15,10 +15,20 @@ window.DataTableHelper = {
     },
     image: function (src) {
         if (src) {
-            return `<img src="${cdnUrl + src}" width="40" height="auto" >`
+            return `<img src="${cdnUrl + src}" width="40" height="auto" alt="">`
         }
         return '';
     },
+    avatarRecord: function (row, column) {
+        const baseUrl = cdnUrl.replace(/\/storage\/?$/, "").replace(/\/$/, "");
+        const defaultAvatar = `${baseUrl}/assets/media/svg/avatars/blank.svg`;
+        const src = row[column]
+            ? `${cdnUrl}${row[column].replace(/^storage\//, "")}`
+            : defaultAvatar;
+
+        return `<img src="${src}" width="40" height="40" style="border-radius:5px;object-fit:cover;" alt="user">`;
+    },
+
     formatDate(row, column) {
         return moment(row[column]).format('DD-MM-Y HH:mm:ss');
     },

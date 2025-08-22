@@ -7,6 +7,7 @@ use Core\Interfaces\Admin;
 use Core\Interfaces\Repository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,9 +27,6 @@ abstract class AbstractAdmin implements Admin
 
     protected bool $isActEdit = true;
     protected bool $isActDel  = true;
-
-    protected bool $isSeo = false;
-
     public function getRequest(): Request
     {
         return $this->request;
@@ -108,15 +106,13 @@ abstract class AbstractAdmin implements Admin
             foreach ($files as $fieldName => $file) {
                 $fieldName = str_replace('_prefix', '', $fieldName);
                 if (!is_array($file)) {
-                    if ($this->request->get($fieldName . "_remove")) {
-                        if ($this->removeFile($item->$fieldName)) {
-                            $this->request->merge([$fieldName => '']);
-                        }
+                    if ($this->request->get($fieldName . "_remove") && $this->removeFile($item->$fieldName)) {
+                        $this->request->merge([$fieldName => '']);
                     }
                     $path = $file->store('public/' . $this->createStoreFilePath($this->route));
                     $this->request->merge([$fieldName => str_replace('public/', '', $path)]);
 
-                    if (!empty($path) && !empty($item)) {
+                    if (!empty($path) && $item !== null) {
                         $this->removeFile($item->$fieldName);
                     }
                 } else {
@@ -134,16 +130,15 @@ abstract class AbstractAdmin implements Admin
                             }
                         }
                     }
-                    if (!empty($item) && !empty($item->$fieldName)) {
+                    if ($item !== null && !empty($item->$fieldName)) {
                         $diff  = array_diff($item->$fieldName, $listRemove);
-                        $files = array_merge($diff, $files);
+                        $files = [...$diff, ...$files];
                     }
                     $this->request->merge([$fieldName => $files]);
                 }
             }
         }
     }
-
 
     public function removeFile(?string $filePath): bool
     {
@@ -162,22 +157,22 @@ abstract class AbstractAdmin implements Admin
         throw new CoreException('The admin ' . $this->getAdminName() . ' need datatable class. Please create or set $dataTable = false');
     }
 
-
-    public function datatables(Request $request)
+    public function datatables(Request $request): JsonResponse
     {
         return \DataTables::of($this->getRepository()->getModel()->query())->toJson();
     }
 
-    public function create($data): ?\Illuminate\Database\Eloquent\Model
+    public function create($data): ?Model
     {
         return $this->getRepository()->create($data);
     }
 
-    public function update($id, $data): \Illuminate\Database\Eloquent\Model
+    public function update($id, $data): Model
     {
         $item = $this->getRepository()->find($id);
-        if (!$item)
+        if (!$item) {
             throw new ModelNotFoundException(__('Không tìm thấy bản ghi được yêu cầu'));
+        }
         $item->fill($data);
         $item->save();
 
@@ -191,64 +186,44 @@ abstract class AbstractAdmin implements Admin
 
     public function beforeCreate(): void
     {
-        $this->prepareSeoRequest();
+        //Todo handle before create action
     }
 
-    /**
-     * Command hook run when resource is created
-     * @return void
-     */
     public function afterCreate(Model $entity): void
     {
-        $this->saveSeo($entity);
+        //Todo handle after create action
     }
 
     public function beforeUpdate(): void
     {
-        $this->prepareSeoRequest();
+        //Todo handle before update action
     }
 
     public function afterUpdate(Model $entity): void
     {
-        $this->saveSeo($entity);
+        //Todo handle after update action
     }
 
-    /**
-     * Call when before update or create action
-     *
-     * @param Model $entity
-     *
-     * @return void
-     */
+
     public function beforeCommit(): void
     {
-
+        //Todo handle before commit action
     }
 
-    /**
-     * Call when update and create action
-     *
-     * @param Model $entity
-     *
-     * @return void
-     */
     public function afterCommit(Model $entity): void
     {
-
+        //Todo handle after commit action
     }
 
-    /**
-     * Call when before delete item
-     * @return void
-     */
+
     public function beforeDelete(Model $entity): void
     {
-
+        // Todo handle before delete action
     }
 
     public function afterDelete(array $entity): void
     {
-
+        // Todo handle after delete action
     }
 
     public function beforeEdit(Model $entity): Model
@@ -263,35 +238,29 @@ abstract class AbstractAdmin implements Admin
 
     public function getRoutePath(): string
     {
-        if (!empty($this->routePath))
+        if (!empty($this->routePath)) {
             return ltrim($this->routePath, '/');
+        }
 
         return $this->route;
     }
 
     public function getResourceParam(): string
     {
-        if (!empty($this->resourceParam))
+        if (!empty($this->resourceParam)) {
             return $this->resourceParam;
+        }
 
         return $this->route;
     }
 
-    /**
-     * This is return array action on listing page
-     * @return array|string
-     */
     public function getPageActions(): array
     {
         return [];
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return void
-     */
-    public function export(Request $request)
+
+    public function export(Request $request): void
     {
         throw new \Exception('Export method Not implement');
     }
@@ -306,100 +275,4 @@ abstract class AbstractAdmin implements Admin
         return $this->isActDel;
     }
 
-    public function prepareSeoRequest(): void
-    {
-        if (!$this->isSeo) {
-            return;
-        }
-        $seo                     = [];
-        $seo['focus_keyword']    = $this->request->get('seo_focus_keyword', '');
-        $seo['meta_title']       = $this->request->get('seo_meta_title', '');
-        $seo['meta_description'] = $this->request->get('seo_meta_description', '');
-//        $seo['meta_keywords']       = $this->request->get('seo_meta_keywords', '');
-        $seo['og_image']            = $this->request->get('seo_og_image', '');
-        $seo['og_title']            = $this->request->get('seo_og_title', '');
-        $seo['og_description']      = $this->request->get('seo_og_description', '');
-        $seo['canonical_url']       = $this->request->get('seo_canonical_url', '');
-        $seo['twitter_title']       = $this->request->get('seo_twitter_title', '');
-        $seo['twitter_description'] = $this->request->get('seo_twitter_description', '');
-        $seo['twitter_image']       = $this->request->get('seo_twitter_image', '');
-//        $seo['robots']              = $this->request->get('seo_robots', '');
-        $seo['json_ld']   = $this->request->get('seo_json_ld', '');
-        $seo['is_index']  = $this->request->get('seo_is_index', false);
-        $seo['is_follow'] = $this->request->get('seo_is_follow', false);
-
-        $seo['robots'] = ($seo['is_index'] ? 'index' : 'noindex') . ', ' . ($seo['is_follow'] ? 'follow' : 'nofollow');
-
-
-        $this->request->merge(['seo' => $seo]);
-        $seoAnalysis              = $this->_analyzeSeo();
-        $seo['seo_score']         = $seoAnalysis['score'];
-        $seo['readability_score'] = 0; // Placeholder for readability score, can be implemented later
-        $this->request->merge(['seo' => $seo]);
-    }
-
-    public function saveSeo(Model $model): void
-    {
-        $seo = $this->request->get('seo');
-        if (!$this->isSeo || empty($seo)) {
-            return;
-        }
-
-        if ($model->seo) {
-            $model->seo->update($seo);
-        } else {
-            $model->seo()->create($seo);
-        }
-    }
-
-    private function _analyzeSeo(): array
-    {
-        $score       = 0;
-        $issues      = [];
-        $seo         = $this->request->get('seo', []);
-        $content     = $this->request->get('content_vi', '');
-        $description = $this->request->get('description_vi', '');
-
-        $focusKeyword     = strtolower($seo['focus_keyword'] ?? '');
-        $metaTitle        = strtolower($seo['meta_title'] ?? '');
-        $metaDescription  = strtolower($seo['meta_description'] ?? '');
-
-        // Title chứa keyword?
-        if (str_contains(strtolower($metaTitle), strtolower($focusKeyword))) {
-            $score += 20;
-        } else {
-            $issues[] = "Tiêu đề không chứa từ khóa chính.";
-        }
-
-        // Description chứa keyword?
-        if (str_contains(strtolower($metaDescription), strtolower($focusKeyword))) {
-            $score += 15;
-        } else {
-            $issues[] = "Meta description không chứa từ khóa.";
-        }
-
-        // Mật độ từ khóa trong nội dung?
-        if ($content && $description && $focusKeyword){
-            $content = strip_tags($content . ' ' . $description);
-            $kwCount = substr_count(strtolower($content), strtolower($focusKeyword));
-            $density = $kwCount / max(1, str_word_count($content));
-
-            if ($density > 0.01 && $density < 0.03) {
-                $score += 25;
-            } else {
-                $issues[] = "Mật độ từ khóa trong nội dung không tối ưu (khuyến nghị 1%–3%).";
-            }
-        } else {
-            $issues[] = "Nội dung hoặc mô tả không được cung cấp.";
-        }
-
-        // Độ dài title, description?
-        $score += (strlen($metaTitle) <= 60) ? 10 : 0;
-        $score += (strlen($metaDescription) <= 160) ? 10 : 0;
-
-        return [
-            'score'  => $score,
-            'issues' => $issues
-        ];
-    }
 }

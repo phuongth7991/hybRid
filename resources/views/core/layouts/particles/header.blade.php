@@ -137,7 +137,10 @@
                     <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                          data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
                          data-kt-menu-placement="bottom-end">
-                        <img src="{{asset('/assets/media/avatars/300-1.jpg')}}" alt="user"/>
+                        <img src="{{ Auth::user()->avatar
+                            ? asset('storage/' . Auth::user()->avatar)
+                            : asset('assets/media/avatars/300-1.jpg') }}"
+                            alt="user"/>
                     </div>
                     <!--begin::User account menu-->
                     <div
@@ -148,7 +151,10 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="{{asset('/assets/media/avatars/300-1.jpg')}}"/>
+                                    <img src="{{ Auth::user()->avatar
+                                        ? asset('storage/' . Auth::user()->avatar)
+                                        : asset('assets/media/avatars/300-1.jpg') }}"
+                                        alt="user"/>
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->

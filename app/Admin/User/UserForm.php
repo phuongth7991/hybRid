@@ -19,7 +19,11 @@ class UserForm extends Form
                 'label' => __('Email')
             ])
             ->add('password', Field::PASSWORD, [
-                'label' => __('Mật khẩu')
+                'label' => __('Mật khẩu'),
+                'value' => '',
+                'attr'  => [
+                    'placeholder'  => __('*******'),
+                ],
             ])
             ->add('phone', Field::TEXT, [
                 'rules' => 'required|max:255',

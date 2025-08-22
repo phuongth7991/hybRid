@@ -32,7 +32,7 @@ class User extends AbstractAdmin implements UserAdmin
         return UserForm::class;
     }
 
-    function getDataTable(): string
+    public function getDataTable(): string
     {
         return UserDataTable::class;
     }
@@ -93,6 +93,8 @@ class User extends AbstractAdmin implements UserAdmin
                     'password' => bcrypt($password),
                 ]
             );
+        }else {
+            $request->request->remove('password');
         }
         $this->setRequest($request);
     }

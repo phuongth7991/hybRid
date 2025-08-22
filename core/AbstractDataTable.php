@@ -31,7 +31,7 @@ abstract class AbstractDataTable implements DataTable
                              ->ajax(route($this->admin->getRouteName() . '.index') . '?' . $request->getQueryString());
     }
 
-    public function money($column = 'price', $title = 'Giá gốc')
+    public function money($column = 'price', $title = 'Giá gốc'): Column
     {
         return Column::make($column)->title(__($title))
                      ->render('DataTableHelper.formatMoney(full, \'' . $column . '\')');
@@ -56,10 +56,11 @@ abstract class AbstractDataTable implements DataTable
         }';
     }
 
-    private function getRoutePath()
+    private function getRoutePath(): string
     {
-        if (!empty($this->admin->getRoutePath()))
+        if (!empty($this->admin->getRoutePath())) {
             return $this->admin->getRoutePath();
+        }
 
         return $this->admin->getRouteName();
     }
@@ -119,5 +120,11 @@ abstract class AbstractDataTable implements DataTable
 
         return Column::make($column)->title(__($title))
                      ->render('"<a target=\'_blank\' href=\'//"+data+"\'>"+data+"</a>"');
+    }
+
+    public function avatarRecord($column = 'avatar', $title = 'Ảnh đại diện'): Column
+    {
+        return Column::make($column)->title(__($title))
+                     ->render('DataTableHelper.avatarRecord(full,\'' . $column . '\')');
     }
 }
